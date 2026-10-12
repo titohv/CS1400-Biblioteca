@@ -31,12 +31,18 @@ import turtle
 #  Iniciar ventana y objeto de tortuga y agregar el speed o velocidad. Pista: Mira la Tarea 1turtle.py
 
 # Escribe aquí tu código
+pantalla = turtle.Screen()
+pantalla.setup(width=400, height=400)
+pantalla.title("Mi primer cuadrado")
 
 # TODO 2
 #  Crea la tortuga usando make_turtle().
 #  La ventana debe tener 400 de alto y 400 de ancho.
 
 # Escribe aquí tu código
+t = turtle.Turtle()
+t.shape("turtle")
+t.speed(3)
 
 # Captura de Pantalla, nombralo "TUNOMBRE_1_2" y guardalo en la carpeta M06
 
@@ -49,7 +55,7 @@ import turtle
 # Observa qué sucede.
 
 # Escribe aquí tu código
-
+t.forward(100)
 
 # ------------------------------------------
 # Girar la tortuga
@@ -60,7 +66,8 @@ import turtle
 # Luego avanza otros 100 pasos.
 
 # Escribe aquí tu código
-
+t.left(90)
+t.forward(100)
 
 # ------------------------------------------
 # Dibujar un cuadrado 
@@ -78,7 +85,14 @@ print("Dibujando un cuadrado...")
 # La tortuga debe terminar donde empezó.
 
 # Escribe aquí tu código
+# TODO 5
+t.left(90)
+t.forward(100)
 
+t.left(90)
+t.forward(100)
+
+t.left(90)
 
 # ------------------------------------------
 # Paso EXTRA (opcional)

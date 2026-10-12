@@ -1,4 +1,10 @@
-""" TODO 1 agregar tu nombre fecha titulo de una manera bonita """
+""" 
+=======================================
+Nombre: Tito Juan Huerta Varillas
+Fecha: 2023-10-01
+Título: Dibujo de una casa con tortuga
+=======================================
+"""
 
 
 # Importamos la biblioteca turtle (ya viene incluida en Python)
@@ -7,7 +13,7 @@ import turtle
 # Configuración de la pantalla y la tortuga
 pantalla = turtle.Screen() # # Usamos sintaxis de punto . para acceder a la función Screen()
 pantalla.bgcolor("lightcyan")  # TODO 2 Cambia el color de fondo usando la función bgcolor()
-pantalla.title("Titulo") #TODO 3 Asigna un título a la ventana usando title()
+pantalla.title("Dibujo de una casa") #TODO 3 Asigna un título a la ventana usando title()
 
 # Corre el programa hasta este punto utilizando """ """ o # para asegurar que funcione bien.
 
@@ -31,6 +37,7 @@ for _ in range(4):
     t.left(90)      # 
 
 # TODO 7 En que linea de codigo empezo el fill? o relleno?
+# comienza en la linea 32 con t.begin_fill()
 t.end_fill()
 
 # Mantiene la ventana abierta hasta que hagas clic en ella

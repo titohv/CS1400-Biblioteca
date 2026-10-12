@@ -9,7 +9,6 @@ En este ejercicio aprenderás el PODER DE LAS FUNCIONES:
 3. Parámetros: Cambia el comportamiento de tu dibujo pasando 
    diferentes argumentos (tamaño, número de rebanadas, color).
 ====================================================================
-"""
 
 import math
 import turtle
@@ -32,7 +31,7 @@ t.speed(5)
 
 # TODO 1: Completa la definición de la función 'dibujar_triangulo'
 def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
-    """
+  
     Dibuja una porción de tarta (triángulo isósceles) usando la tortuga 't'.
     
     Parámetros:
@@ -40,7 +39,7 @@ def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
     - longitud: La longitud de los dos lados iguales (el radio de la tarta).
     - angulo: El ángulo en el vértice central (en grados).
     - color_relleno: El color con el que se pintará la porción.
-    """
+    
     
     # --------------------------------------------------------------
     # Paso A: Cálculos Matemáticos (Geometría del Triángulo)
@@ -83,10 +82,10 @@ def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
 # TODO 5: Función que reutiliza 'dibujar_triangulo' para construir la tarta completa. 
 # Parametros incluyen porciones, longitud, y el color del relleno.
 
-    """
+   
     Dibuja una tarta completa de 'n_porciones' llamando repetidamente
     a la función 'dibujar_triangulo'.
-    """
+   
     
     # TODO 6: Calcula el ángulo central de cada porción (360° / n_porciones)
 
@@ -96,7 +95,7 @@ def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
 
 # TODO 8 (EXTRA/OPCIONAL): Función auxiliar para mover la tortuga sin dejar rastro
 # def mover_tortuga(t, x, y):
-    """Mueve la tortuga a las coordenadas (x, y) sin dibujar."""
+   Mueve la tortuga a las coordenadas (x, y) sin dibujar.
     # Investigar .penup .goto y .pendown
 
 
@@ -114,3 +113,104 @@ def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
 # --- Tarta 3: Tarta pequeña (o pizza) de 4 porciones ---
 
 # TODO 10: Finalizar ejecución al hacer clic
+"""
+
+
+
+import math
+import turtle
+
+# ==========================================
+# 1. Configuración inicial
+# ==========================================
+
+pantalla = turtle.Screen()
+pantalla.setup(width=900, height=650)
+pantalla.bgcolor("lightcyan")
+pantalla.title("El Poder de las Funciones: Tarta de Triángulos")
+
+t = turtle.Turtle()
+t.shape("turtle")
+t.speed(5)
+
+
+# ==========================================
+# 2. Definición de funciones
+# ==========================================
+
+# TODO 1: Crear función para dibujar triángulos
+# TODO 1: Definir la función
+def dibujar_triangulo(t, longitud, angulo, color_relleno="orange"):
+    """
+    Dibuja una porción de pizza.
+
+    Parámetros:
+    t: Tortuga que realiza el dibujo.
+    longitud: Tamaño de los lados iguales.
+    angulo: Ángulo central de la porción.
+    color_relleno: Color de la porción.
+    """
+
+    # TODO 2: Calcular la base
+    angulo_radianes = math.radians(angulo / 2)
+    base = 2 * longitud * math.sin(angulo_radianes)
+
+    # TODO 3: Calcular el ángulo de giro
+    angulo_giro_base = 90 + (angulo / 2)
+
+    # TODO 4: Dibujar el triángulo
+    t.color("darkred", color_relleno)
+    t.begin_fill()
+
+    t.forward(longitud)
+    t.left(angulo_giro_base)
+    t.forward(base)
+    t.left(angulo_giro_base)
+    t.forward(longitud)
+    t.left(180)
+
+    t.end_fill()
+
+
+# TODO 5: Función para dibujar la pizza completa
+def dibujar_tarta(t, n_porciones, longitud, color_relleno="orange"):
+
+    # TODO 6: Calcular ángulo por porción
+    angulo = 360 / n_porciones
+
+    # TODO 7: Repetir según cantidad de porciones
+    for i in range(n_porciones):
+        dibujar_triangulo(t, longitud, angulo, color_relleno)
+        t.right(angulo)
+
+
+# TODO 8: Mover la tortuga sin dibujar
+def mover_tortuga(t, x, y):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+
+
+# ==========================================
+# 3. Dibujar las pizzas
+# ==========================================
+
+# TODO 9: Dibujar tres pizzas
+
+# Pizza 1: 6 porciones
+mover_tortuga(t, -200, 100)
+dibujar_tarta(t, 6, 100, "orange")
+
+# Pizza 2: 12 porciones
+mover_tortuga(t, 180, 100)
+dibujar_tarta(t, 12, 130, "gold")
+
+# Pizza 3: 4 porciones
+mover_tortuga(t, 0, -170)
+dibujar_tarta(t, 4, 80, "tomato")
+
+# Ocultar la tortuga cuando termine
+t.hideturtle()
+
+# TODO 10: Finalizar al hacer clic
+pantalla.exitonclick()
