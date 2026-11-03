@@ -158,5 +158,3 @@ def calculadora_segura():
             pass
 
 calculadora_segura()
-
-
